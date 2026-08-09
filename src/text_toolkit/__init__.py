@@ -1,2 +1,1 @@
-def count_words(text):
-    return len(text.split())
+from text_toolkit.core import count_words

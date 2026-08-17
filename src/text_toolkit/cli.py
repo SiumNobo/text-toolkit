@@ -21,7 +21,10 @@ def chunk(file: str, size: int = 100, overlap: int = 0):
     config = ChunkConfig(size=size, overlap=overlap)
     with open(file) as f:
         text = f.read()
-    chunks = [text[i:i + config.size] for i in range(0, len(text), config.size - config.overlap)]
+    chunks = [
+        text[i : i + config.size]
+        for i in range(0, len(text), config.size - config.overlap)
+    ]
     typer.echo(f"Created {len(chunks)} chunks")
 
 

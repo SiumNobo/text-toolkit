@@ -8,6 +8,7 @@ dependencies = [
     "pydantic>=2.13.4",
     "pydantic-settings>=2.15.0",
     "structlog>=26.1.0",
+    "typer>=0.27.1",
 ]
 
 [build-system]
@@ -20,3 +21,7 @@ dev = [
     "pytest>=9.1.1",
     "pytest-cov>=7.1.0",
 ]
+
+
+[project.scripts]
+text-toolkit = "text_toolkit.cli:app"

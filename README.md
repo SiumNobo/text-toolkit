@@ -12,12 +12,47 @@ cd text-toolkit
 uv pip install -e .
 ```
 
+### Alternative: using venv + pip
+
+If you don't have `uv` installed:
+
+```bash
+git clone https://github.com/SiumNobo/text-toolkit.git
+cd text-toolkit
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e .
+```
+
+Note: `pip install -e .` installs runtime dependencies only
+(`pydantic`, `pydantic-settings`, `structlog`, `typer`). Development
+tools (pytest, mypy, ruff) are managed via `uv`'s dependency groups
+and may need manual installation with plain `pip`.
+
 ## Usage
 
 ```bash
 text-toolkit stats myfile.txt
 text-toolkit chunk myfile.txt --size 500 --overlap 50
 text-toolkit clean myfile.txt
+```
+
+## Real-World Test
+
+Ran against Jane Austen's *Pride and Prejudice* (Project Gutenberg, ~720KB):
+
+## Real-World Test
+
+Ran against Jane Austen's *Pride and Prejudice* (Project Gutenberg, ~720KB):
+
+```bash
+curl -o pride_and_prejudice.txt https://www.gutenberg.org/files/1342/1342-0.txt
+uv run text-toolkit stats pride_and_prejudice.txt
+```
+
+```
+Total unique words: 14160
+```
 ```
 
 ## Design Decisions

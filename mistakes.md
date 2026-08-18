@@ -27,3 +27,10 @@
 - **Saturday**: Committed `sample.txt` and later a full 720KB `pride_and_prejudice.txt`
   demo file into the repo unnecessarily. Not a security issue like `.env`, but the same
   underlying habit — scratch/demo data belongs in `.gitignore`, not the repo.
+
+
+  - **Sunday**: `.gitignore` had two entries accidentally merged onto one line
+  (`.envpride_and_prejudice.txt`), which meant Git matched neither filename and
+  silently re-committed both `.env` and `pride_and_prejudice.txt` a second time.
+  Lesson: after editing `.gitignore`, always `cat` it back and read every line —
+  a merge like this is invisible unless you actually look.
